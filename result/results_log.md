@@ -184,15 +184,11 @@ Ridge: coverage 94.4% | mean interval width 3.669
 
 ### 8.1 Lag-1 autocorrelation
 ```
-(paste or write "not run")
+mean lag-1 autocorrelation: 0.4138612173789571
+
 ```
 
-### 8.2 Per-network analysis (H2)
-```
-(paste or write "not run: reason")
-```
-
-### 8.3 Other figures saved
+### 8.2 Other figures saved
 List any saved figures (loss curves, per-region/per-step RMSE, embeddings) with file names:
 
 ## 9. Run notes
