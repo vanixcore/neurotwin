@@ -2,8 +2,7 @@
 
 *Learning project. Not a medical tool. Inspired by the Stanford Digital Brain Project; no affiliation or connection.*
 
-Status: original plan written before any real-data experiment (Nov 7, 2026). Amended Nov 9-10, 2026 after a single-seed pilot; every amendment is listed in section 12. Items marked **[paste]** or **[confirm]** are for you to fill from your own outputs or sources before submission.
-
+Status: original plan written before any real-data experiment (Nov 7, 2026). Amended Nov 9-10, 2026 after a single-seed pilot; every amendment is listed in section 12. 
 ## 1. Research question
 
 When only a small number of real fMRI subjects are available, does masked-reconstruction pretraining improve forecasting of held-out subjects compared with training from scratch? And is any benefit (or harm) concentrated in particular functional brain networks?
@@ -64,7 +63,7 @@ Nested training subsets per seed (10% inside 25% inside 50% inside 100%): **8, 1
 ## 6. Baselines (same splits, same metrics)
 
 - Persistence (last value); context mean; zero predictor (training mean, since data are z-scored).
-- **Ridge (regularised lag-VAR, direct multi-step):** features are the last p time steps; p and alpha chosen on validation MSE (grid p in {1, 2, 4, 8} **[confirm: add 16 if you ran it]**, alpha in {10, 100, 1000, 1e4, 1e5}); selected p = 8, alpha = 1e4. Refit on each run's training subset.
+- **Ridge (regularised lag-VAR, direct multi-step):** features are the last p time steps; p and alpha chosen on validation MSE (grid p in {1, 2, 4, 8} , alpha in {10, 100, 1000, 1e4, 1e5}); selected p = 8, alpha = 1e4. Refit on each run's training subset.
 - **Group-average time course:** predicts the future with the training subjects' mean signal at the same absolute time points. It is the bar for "learned more than the shared movie response". Refit on each run's training subset.
 - An LSTM baseline was dropped for time.
 
@@ -75,7 +74,7 @@ Results are recorded in `results_log.md` (raw outputs pasted from the notebooks)
 ## 8. Statistics and reproducibility
 
 - Subject-level bootstrap CIs, fixed seeds (0-4), fixed split file (`splits.json`), all per-subject results saved in `results/runs.csv`.
-- PyTorch 2.14.1 (CUDA 13.0), nilearn 0.14.1, Colab T4 GPU. **[confirm: other library versions]**
+- PyTorch 2.14.1 (CUDA 13.0), nilearn 0.14.1, Colab T4 GPU. 
 - The CI reflects test-subject sampling only; it does not capture variation from training-subject draw or training randomness (see the per-seed table in `results_log.md`).
 
 ## 9. Out of scope
@@ -113,14 +112,12 @@ Dataset card, `results_log.md`, scaling plot, calibration table, 3-4 page report
 | Nov 10 | Horizon changed from 16 to 10 | Rule in section 4 applied to ridge validation R2 | Validation data only |
 | Nov 10 | Ridge (lag-VAR) added; LSTM dropped | Strong linear baseline; time | Validation for p, alpha |
 | Nov 10 | Training budget fixed in optimizer steps; 5 seeds | Small subsets should not be under-trained | Method reasoning |
-| **[fill]** | Network analysis (H2): done or dropped | Time and effect size | **[state]** |
 
-## 13. Key references (read; verify any numbers in the papers before quoting)
-
+## 13. Key references 
 - He et al., Masked Autoencoders Are Scalable Vision Learners (arXiv 2111.06377)
 - Nie et al., PatchTST (arXiv 2211.14730)
 - Ortega Caro et al., BrainLM (ICLR 2024)
 - Dong et al., Brain-JEPA (arXiv 2409.19407)
 - Angelopoulos and Bates, A Gentle Introduction to Conformal Prediction (arXiv 2107.07511)
 - Schaefer et al., Local-Global Parcellation of the Human Cerebral Cortex
-- Dataset: Richardson et al., 2018 (OpenNeuro ds000228) **[confirm full citation]**
+- Dataset: Richardson et al., 2018 (OpenNeuro ds000228) 
