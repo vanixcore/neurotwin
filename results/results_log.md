@@ -249,4 +249,4 @@ mean lag-1 autocorrelation: 0.4138612173789571
 https://github.com/vanixcore/neurotwin/tree/main/results/result
 
 ## 9. Run notes
-Anything unexpected during runs (crashes, reruns, Colab resets, changed cells), with dates:
+Data-prep notebook rerun with 40 subjects overwrote X_kept.npy and splits.json after the experiments; regeneration with 155 subjects not completed or re-verified. Results in runs.csv predate the overwrite
