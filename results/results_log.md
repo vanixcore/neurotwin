@@ -209,7 +209,7 @@ frac
 
 ### 6.4 Scaling plot
 **File:** 
-
+https://github.com/vanixcore/neurotwin/blob/main/results/scaling_plot_result.png
 
 **Notes:**
 
@@ -246,7 +246,7 @@ mean lag-1 autocorrelation: 0.4138612173789571
 ```
 
 ### 8.2 Other figures saved
-List any saved figures (loss curves, per-region/per-step RMSE, embeddings) with file names:
+
 
 ## 9. Run notes
 Anything unexpected during runs (crashes, reruns, Colab resets, changed cells), with dates:
