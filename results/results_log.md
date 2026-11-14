@@ -103,6 +103,7 @@ test 10 {'child': 8, 'adult': 2}
 **Source:** Cell 2 `print(cfg)` output with `horizon=10`, and Cell 7 `Parameters:` line.
 ```
 Cfg(n_subjects=128, n_regions=100, n_latents=4, T=168, ctx=64, horizon=10, stride=8, d_model=64, heads=4, layers=2, dropout=0.1, batch=64, pre_epochs=15, ft_epochs=20, lr=0.001, mask_ratio=0.3, patch=4)
+Parameters: 186380
 
 ```
 
