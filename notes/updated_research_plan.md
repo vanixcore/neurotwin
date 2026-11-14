@@ -2,7 +2,7 @@
 
 *Learning project. Not a medical tool. Inspired by the Stanford Digital Brain Project; no affiliation or connection.*
 
-Status: original plan written before any real-data experiment (Nov 7, 2026). Amended Nov 9-10, 2026 after a single-seed pilot; every amendment is listed in section 12. 
+Status: original plan written before any real-data experiment. Amended Nov 9-10, 2026 after a single-seed pilot; every amendment is listed in section 12. 
 ## 1. Research question
 
 When only a small number of real fMRI subjects are available, does masked-reconstruction pretraining improve forecasting of held-out subjects compared with training from scratch? And is any benefit (or harm) concentrated in particular functional brain networks?
