@@ -2,9 +2,7 @@
 
 *Learning project. Not a medical tool. Inspired by the Stanford Digital Brain Project; no affiliation or connection.*
 
-Status: plan written before running real-data experiments. Items marked **[confirm]** are to be checked once the real dataset is loaded.
-
-## 1. Research question
+Status: plan written before running real-data experiments. 
 
 When only a small number of real fMRI subjects are available, does masked-reconstruction pretraining improve forecasting of held-out subjects compared with training from scratch? And is any benefit (or harm) concentrated in particular functional brain networks?
 
@@ -20,7 +18,7 @@ My prior expectation is that H0 holds at most training sizes. A null result is a
 
 ## 3. Data
 
-- Public fMRI dataset (planned: nilearn `fetch_development_fmri`, derived from OpenNeuro ds000228; movie-watching task). **[confirm]** license, citation, number of subjects used, and number of time points per subject.
+- Public fMRI dataset (planned: nilearn `fetch_development_fmri`, derived from OpenNeuro ds000228; movie-watching task). 
 - Parcellated with the Schaefer atlas (100 regions) into an array of shape `(subjects, time, regions)`.
 - Per-region z-scoring and band-pass filtering handled once, in the notebook's preprocessing step (not duplicated in the masker).
 - Synthetic-data results from the original notebook are never presented as real measurements.
@@ -31,7 +29,7 @@ My prior expectation is that H0 holds at most training sizes. A null result is a
 - Fixed test subjects shared across all experiments.
 - Separate calibration subjects (for conformal prediction, kept apart from the early-stopping validation set).
 - Remaining subjects form the training pool, from which nested subsets are drawn: 10% ⊂ 25% ⊂ 50% ⊂ 100%.
-- Draft split: roughly 60% train / 15% validation / 10% calibration / 15% test. **[confirm]** against the actual subject count.
+- Draft split: roughly 60% train / 15% validation / 10% calibration / 15% test. 
 
 **Arms (identical except for one stage).**
 - *Scratch:* train the forecasting model directly.
@@ -41,8 +39,7 @@ My prior expectation is that H0 holds at most training sizes. A null result is a
 
 **Seeds.** 5 seeds per setting. The random subset draw also varies by seed.
 
-**Forecast setup.** Context and horizon taken from the notebook (default 64 context, 16 horizon). **[confirm]** against scan length; reduce context if the series is short.
-
+**Forecast setup.** Context and horizon taken from the notebook (default 64 context, 16 horizon). 
 ## 5. Primary outcome and decision rule (fixed before running)
 
 - **Metric:** test MSE of the horizon-step forecast, computed per held-out subject.
@@ -58,7 +55,7 @@ Persistence (last value), context mean, ridge or VAR, and a small LSTM. The Tran
 
 Uses the same trained models and test subjects as the primary analysis. No extra training.
 
-1. Map each of the 100 parcels to its Schaefer network (7 networks) from the atlas labels. **[confirm]** label format in the installed nilearn version.
+1. Map each of the 100 parcels to its Schaefer network (7 networks) from the atlas labels.
 2. Average per-region error within each network, then compute the scratch-minus-pretrained difference per network.
 3. Report two things per network: how predictable it is (error or R² of the pretrained model), and how much pretraining changes it.
 
