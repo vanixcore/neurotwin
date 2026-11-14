@@ -16,28 +16,85 @@ nilearn: 0.14.1
 
 ## 2. Data preparation (`01_data_prep.ipynb`)
 
-### 2.1 Parcellation check (155 subjects)
+### 2.1 Parcellation check 
 **Source:** the stack-and-check cell (time points min/max, X shape, NaNs, zero-variance regions, child/adult counts).
 ```
-(paste)
+time points: min 168 max 168
+X shape: (40, 168, 100)
+NaNs: False | zero-variance regions: 0
+Child_Adult
+child    31
+adult     9
+Name: count, dtype: int64
+
 ```
 
 ### 2.2 Head motion summary
 **Source:** the motion cell (overall `mean_fd` describe, by-group table, top-10 table).
 ```
-(paste)
+count    40.000000
+mean      0.328394
+std       0.265120
+min       0.078781
+25%       0.179089
+50%       0.258681
+75%       0.376197
+max       1.267678
+Name: mean_fd, dtype: float64
+Child_Adult               adult      child
+mean_fd         count  9.000000  31.000000
+                mean   0.214547   0.361446
+                std    0.129833   0.286117
+                min    0.078781   0.090253
+                25%    0.148315   0.196112
+                50%    0.189773   0.301785
+                75%    0.234032   0.382982
+                max    0.528821   1.267678
+frac_over_0.5mm count  9.000000  31.000000
+                mean   0.062169   0.158410
+                std    0.118380   0.150252
+                min    0.000000   0.000000
+                25%    0.017857   0.071429
+                50%    0.017857   0.125000
+                75%    0.041667   0.184524
+                max    0.375000   0.738095
+               mean_fd  frac_over_0.5mm Child_Adult        Age
+sub-pixar004  0.379028         0.190476       child   4.473648
+sub-pixar001  0.386937         0.160714       child   4.774812
+sub-pixar021  0.392830         0.190476       child   4.364134
+sub-pixar031  0.428981         0.261905       child   4.084873
+sub-pixar016  0.490337         0.291667       child   3.622177
+sub-pixar012  0.514644         0.375000       child   3.786448
+sub-pixar124  0.528821         0.375000       adult  33.440000
+sub-pixar006  0.931027         0.422619       child   3.605749
+sub-pixar027  1.231459         0.315476       child   3.989049
+sub-pixar028  1.267678         0.738095       child   3.534565
+
 ```
 
 ### 2.3 Exclusion rule counts and result
 **Source:** the counting cell (3 options) and the apply cell output (kept shape and child/adult counts). Rule used: mean framewise displacement > 0.5 mm.
 ```
-(paste)
+mean_fd > 0.5 -> excluded: 5 | by group: {'child': 4, 'adult': 1} | remaining: 35
+mean_fd > 0.7 -> excluded: 3 | by group: {'child': 3} | remaining: 37
+>20% volumes > 0.5mm -> excluded: 7 | by group: {'child': 6, 'adult': 1} | remaining: 33
+(35, 168, 100)
+Child_Adult
+child    27
+adult     8
+Name: count, dtype: int64
+
 ```
 
 ### 2.4 Splits
 **Source:** the splits cell printout (train/val/cal/test counts and subset sizes).
 ```
-(paste)
+train 9 {'child': 7, 'adult': 2}
+val 8 {'child': 6, 'adult': 2}
+cal 8 {'child': 6, 'adult': 2}
+test 10 {'child': 8, 'adult': 2}
+{'0.1': 1, '0.25': 2, '0.5': 4, '1.0': 9}
+
 ```
 
 ## 3. Model setup (`NeuroTwin_real.ipynb`)
