@@ -209,9 +209,8 @@ frac
 
 ### 6.4 Scaling plot
 **File:** 
-https://github.com/vanixcore/neurotwin/blob/main/results/scaling_plot_result.png
-
-**Notes:**
+https://github.com/vanixcore/neurotwin/blob/main/results/result/scaling_plot_result.png
+**Caption:**Data-scaling: test MSE vs number of training subjects
 
 ## 7. Uncertainty calibration
 
@@ -246,7 +245,7 @@ mean lag-1 autocorrelation: 0.4138612173789571
 ```
 
 ### 8.2 Other figures saved
-
+https://github.com/vanixcore/neurotwin/tree/main/results/result
 
 ## 9. Run notes
 Anything unexpected during runs (crashes, reruns, Colab resets, changed cells), with dates:
